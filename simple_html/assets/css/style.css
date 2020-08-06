@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+html, body{
+    margin: 0;
+    font-family: 'PT Sans', sans-serif;
+}
+.slideshow {
+    font-size: 20px;
+    padding: 120px;
+    background-color:rgba(0,0,0,0.5);
+    text-align: center;
+    color: white;
+
+}
+header{
+    display: inline;
+}
+
+nav{
+    background-color: #37c3b8;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+nav > ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav > ul > li{
+    padding: 20px;
+}
+
+nav > ul > li:hover{
+    background-color: #36393b;
+}
+
+nav > ul > li a{
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+#content{
+    width: 75%;
+    float: left;
+}
+
+#gallery{
+    display: flex;
+    
+    flex-wrap: wrap;
+    padding: 15px;
+    
+}
+
+article{
+    padding: 10px;
+    margin: 16px;
+    box-shadow: 1px 3px 6px 0px #bababa;
+    cursor: pointer;
+    position: relative;
+}
+
+#gallery > article{
+    flex-basis: 18%;
+    height: 120px;
+    border-radius: 5px;
+    animation: all 0.5s;
+}
+
+#gallery > article > p{
+    display: none;
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    width: 100%;
+    left: 0;
+    padding: 10px 0;
+    margin: 0;
+    text-align: center;
+}
+
+#gallery > article:hover > p{
+    display: block;
+}
+
+aside{
+    float: right;
+    width: 25%;
+    position: sticky;
+    top: 80px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 1px 3px 6px 0px #bababa;
+    z-index: 2;
+}
+
+aside > img{
+    max-width: 120px;
+    border-radius: 100px;
+    margin: 10px;
+}
+
+aside > p > a{
+    margin: 10px;
+}
+
+aside > p > a{
+    text-decoration: none;
+    color: black !important;
+}
+
+#preview-container{
+    display: none;
+    position: fixed;
+    background: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    z-index:3;
+}
+#preview-container > img{
+    max-width: 60%;
+}
+.clear{
+    clear: both;
+}
+
+footer{
+    padding: 20px;
+    background: #37c3b8;
+    text-align: center;
+    color: white;
+}
+
+footer > p{
+    margin: 0;
+}
+
+#best{
+    text-align: center;
+}
+
+.best-image{
+    max-width: 80%;
+    margin: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+    #content,
+    aside {
+        width: 100%;
+        padding: 0;
+    }
+
+    #gallery > article{
+        flex-basis: 24%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #gallery > article{
+        flex-basis: 38%;
+        margin: 16px auto;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #gallery > article{
+        flex-basis: 38%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .slideshow{
+        padding: 60px;
+    }
+
+    #preview-container > img {
+        max-width: 90%;
+    }
+
+    
+    #gallery > article{
+        flex-basis: 100%;
+        height: 150px;
+    }
+}

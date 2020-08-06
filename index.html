@@ -25,7 +25,6 @@
 				margin: 0;
 				background-repeat: no-repeat;
 				background-attachment: fixed;
-				background-image: url('pantai.jpg');
 			}
 			h1{
 				position: fixed;
@@ -38,45 +37,96 @@
 		
 	</head>
 	<body>
-		<h1 id="demo">00 : 00 : 00</h1>
-
-		<!-- jQuery -->
-		<script
-  			src="https://code.jquery.com/jquery-1.9.1.min.js"
-  			integrity="sha256-wS9gmOZBqsqWxgIVgA8Y9WcQOa7PgSIX+rPA0VL2rbQ="
-  			crossorigin="anonymous"></script>
-		<!-- Bootstrap JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-		<script type="text/javascript">
-			var countDownDate = new Date("November 21, 2019 18:00:00").getTime();
-
-			var x = setInterval(function() {
-
-			  // Get today's date and time
-			  var now = new Date().getTime();
-
-			  // Find the distance between now and the count down date
-			  var distance = countDownDate - now;
-
-			  // Time calculations for days, hours, minutes and seconds
-			  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-			  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-			  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-			  // Display the result in the element with id="demo"
-			  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-			  + minutes + "m " + seconds + "s ";
-
-			  // If the count down is finished, write some text
-			  if (distance < 0) {
-			    clearInterval(x);
-			    document.getElementById("demo").innerHTML = "EXPIRED";
-			  }
-			}, 1000);
-			</script>
-		</script>
+		
+		<nav class="navbar navbar-default" role="navigation">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Senja Jajan</a>
+			</div>
+		</nav>
+		
+		<div class="container-fluid">
+			
+			<div class="row">
+				<div class="col-md-8">
+					<table class="table table-hover table-striped table-bordered table-responsive">
+						<thead>
+							<tr>
+								<th>Barang</th>
+								<th>Jumlah</th>
+								<th>Harga Satuan</th>
+								<th>Harga Total</th>
+								<th>Harga Diskon</th>
+								<th>Harga Diskon Total</th>
+								<th>Pembulatan</th>
+								<th>Total Pembulatan</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr data-jajan="0">
+								<td><input type="text" class="form-control"></td>
+								<td><input type="text" class="form-control"></td>
+								<td><input type="text" class="form-control"></td>
+								<td>Rp. <span></span></td>
+								<td>Rp. <span></span></td>
+								<td>Rp. <span></span></td>
+								<td><input type="text" class="form-control"></td>
+								<td>Rp. <span></span></td>
+								<td><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td><strong>Total</strong></td>
+								<td>Rp. <span></span></td>
+								<td>Rp. <span></span></td>
+								<td>Rp. <span></span></td>
+								<td>Rp. <span></span></td>
+								<td>Rp. <span></span></td>
+								<td>Rp. <span></span></td>
+								<td>Rp. <span></span></td>
+								<td><button class="btn btn-success btn-sm text-center"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+				<div class="col-md-4">
+					
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<table class="table table-hover table-striped">
+								<tbody>
+									<tr>
+										<td>Total Biaya Akhir</td>
+										<td><input type="text" class="form-control"></td>
+									</tr>
+									<tr>
+										<td>Total Biaya Murni</td>
+										<td><input type="text" class="form-control" readonly></td>
+									</tr>
+									<tr>
+										<td>Total Diskon (%)</td>
+										<td><input type="text" class="form-control" readonly></td>
+									</tr>
+									<tr>
+										<td>Offset</td>
+										<td><input type="text" class="form-control" readonly></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
 	</body>
 </html>
