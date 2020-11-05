@@ -33,7 +33,7 @@ html,body{
 
 #gunung{
     width: 100%;
-    height: 500px;
+    height: 400px;
     position: fixed;
     bottom: 280px;
     background-image: url(gunung.png);
