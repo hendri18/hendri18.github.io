@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/style.css">
         <style>
+
             .wrapper{
                 position: relative;
                 top: 56px;
@@ -18,6 +19,7 @@
                 height: calc(100% - 56px);
                 position: fixed;
                 overflow-y: auto;
+                background: linear-gradient(383deg, #2992e4 0%, #3551a8 75%);
             }
             aside ul{
                 list-style: none;
@@ -35,7 +37,7 @@
                 transition: all 0.25s;
             }
             aside ul li.active, aside ul li:hover{
-                background-color: #b3e5fc !important;
+                background-color: #fbfbfb !important;
             }
             aside ul li.active a, aside ul li:hover a{
                 color: black;
@@ -45,6 +47,9 @@
             }
             .navbar-blue-dark{
                 background-color: #1a237e !important;
+            }
+            section.content .card{
+                box-shadow: 2px 2px 2px 0px #b8b8b8;
             }
         </style>
     </head>
@@ -66,7 +71,7 @@
             </div>
         </nav>
         <div class="wrapper">
-            <aside class="bg-primary">
+            <aside>
                 <ul>
                     <li class="active"><a href="#">Dashboard</a></li>
                     <li><a href="#">Artikel</a></li>
