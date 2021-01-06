@@ -1,0 +1,23 @@
+html, body, .login-wrapper{
+    height: 100%;
+    width: 100%;
+}
+
+
+.login-wrapper{
+    margin: 0;
+}
+
+
+.blur{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(140deg, #2992e4 0%, #8ba0b1 50%, #3551a8 75%);
+}
+
+.login-wrapper .card{
+    background: rgba(0,0,0,0.4);
+    color: white;
+    text-align: center;
+}
