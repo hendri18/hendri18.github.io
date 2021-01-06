@@ -7,15 +7,55 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/style.css">
+        <style>
+            .wrapper{
+                position: relative;
+                top: 56px;
+            }
+            aside{
+                width: 225px;
+                height: calc(100% - 56px);
+                position: fixed;
+                overflow-y: auto;
+            }
+            aside ul{
+                list-style: none;
+                padding: 0;
+            }
+            aside ul li{
+                
+                border-bottom: 1px solid white;
+            }
+            aside ul li a{
+                padding: 10px 25px;
+                display: block;
+                color: white;
+                text-decoration: none !important;
+                transition: all 0.25s;
+            }
+            aside ul li.active, aside ul li:hover{
+                background-color: #b3e5fc !important;
+            }
+            aside ul li.active a, aside ul li:hover a{
+                color: black;
+            }
+            section.content{
+                padding-left: 225px;;
+            }
+            .navbar-blue-dark{
+                background-color: #1a237e !important;
+            }
+        </style>
     </head>
-    <body>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-            <a class="navbar-brand" href="#">HendriCell Admin Panel</a>
+    <body class="admin">
+        <nav class="navbar navbar-expand-sm navbar-dark navbar-blue-dark fixed-top">
+            <a class="navbar-brand" href="#">HC Admin Panel</a><a href="#"><</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+				<ul class="navbar-nav ml-auto mt-lg-0">
 					<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hendri Heryanto</a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownId">
@@ -25,6 +65,54 @@
 				</ul>
             </div>
         </nav>
+        <div class="wrapper">
+            <aside class="bg-primary">
+                <ul>
+                    <li class="active"><a href="#">Dashboard</a></li>
+                    <li><a href="#">Artikel</a></li>
+                    <li><a href="#">Pelanggan</a></li>
+                    <li><a href="#">Users</a></li>
+                </ul>
+            </aside>
+            <section class="content">
+                <div class="container-fluid pt-4">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                        </ol>
+                      </nav>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Title</h4>
+                                    <p class="card-text">Text</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Title</h4>
+                                    <p class="card-text">Text</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Title</h4>
+                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid voluptatem quos voluptates provident consequuntur adipisci facere repudiandae vitae, deserunt, voluptatibus ab sequi. Qui voluptatem eos enim, molestias amet necessitatibus facere!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -3,6 +3,10 @@ html, body, .login-wrapper{
     width: 100%;
 }
 
+body.admin{
+    background-color: #f5f5f5;
+}
+
 
 .login-wrapper{
     margin: 0;
