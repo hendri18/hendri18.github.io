@@ -32,8 +32,8 @@
             <aside>
                 <ul>
                     <li class=""><a href="index.html">Dashboard</a></li>
-                    <li class=""><a href="artikel.html">Artikel</a></li>
-                    <li class=""><a href="pelanggan.html">Pelanggan</a></li>
+                    <li><a href="artikel.html">Users</a></li>
+                    <li><a href="pelanggan.html">Pelanggan</a></li>
                     <li class="active"><a href="users.html">Users</a></li>
                 </ul>
             </aside>
@@ -44,37 +44,135 @@
                           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                           <li class="breadcrumb-item active" aria-current="page">Users</li>
                         </ol>
-                      </nav>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Title</h4>
-                                    <p class="card-text">Text</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Title</h4>
-                                    <p class="card-text">Text</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </nav>
                     <div class="row mt-4">
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Title</h4>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid voluptatem quos voluptates provident consequuntur adipisci facere repudiandae vitae, deserunt, voluptatibus ab sequi. Qui voluptatem eos enim, molestias amet necessitatibus facere!</p>
+                                    
+                                    <button type="button" class="btn btn-primary btn-sm mb-4" data-toggle="modal" data-target="#modalCreate">
+                                      Create
+                                    </button>
+                                    
+                                    <table class="table table-striped table-hover table-bordered datatable">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama</th>
+                                                <th>Role</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Hendri Heryanto</td>
+                                                <td>Admin</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success btn-sm" data-nama="Hendri Heryanto" data-role="admin" user-edit data-toggle="modal" data-target="#modalUpdate">
+                                                        Edit
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger btn-sm" hapus-data>
+                                                        Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Heryanto</td>
+                                                <td>Users</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success btn-sm" data-nama="Heryanto" data-role="users" user-edit data-toggle="modal" data-target="#modalUpdate">
+                                                        Edit
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger btn-sm" hapus-data>
+                                                        Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Bambang Heryanto</td>
+                                                <td>Operator</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success btn-sm" data-nama="Bambang Heryanto" data-role="operator" user-edit data-toggle="modal" data-target="#modalUpdate">
+                                                        Edit
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger btn-sm" hapus-data>
+                                                        Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="modalUpdate" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Update Users</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="edit-nama">Nama</label>
+                            <input type="text" class="form-control" id="edit-nama" placeholder="Nama">
+                        </div>
+                        <div class="form-group">
+                          <label for="edit-role">Role</label>
+                          <select class="form-control" name="" id="edit-role">
+                            <option value="admin">Admin</option>
+                            <option value="users">Users</option>
+                            <option value="operator">Operator</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" update-data onclick="$('#form-update').submit()">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Tambah Users</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nama">Nama</label>
+                            <input type="text" class="form-control" id="nama" placeholder="Nama">
+                        </div>
+                        <div class="form-group">
+                          <label for="role">Role</label>
+                          <select class="form-control" name="" id="role">
+                            <option value="admin">Admin</option>
+                            <option value="users">Users</option>
+                            <option value="operator">Operator</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" buat-data>Simpan</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

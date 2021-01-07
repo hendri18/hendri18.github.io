@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Articel | HendriCell Admin Panel</title>
+        <title>Artikel | HendriCell Admin Panel</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -67,10 +67,34 @@
                                                 <td>1</td>
                                                 <td>Cara membuka pintu</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalUpdate">
+                                                    <button type="button" class="btn btn-success btn-sm" data-judul="Cara membuka pintu" data-toggle="modal" data-target="#modalUpdate">
                                                         Edit
                                                     </button>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDelete">
+                                                    <button type="button" class="btn btn-danger btn-sm" hapus-data>
+                                                        Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Cara makan pakai tangan</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success btn-sm" data-judul="Cara makan pakai tangan" data-toggle="modal" data-target="#modalUpdate">
+                                                        Edit
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger btn-sm" hapus-data>
+                                                        Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Cara mencari uang</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success btn-sm" data-judul="Cara mencari uang" data-toggle="modal" data-target="#modalUpdate">
+                                                        Edit
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger btn-sm" hapus-data>
                                                         Delete
                                                     </button>
                                                 </td>
@@ -89,17 +113,24 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
+                        <h5 class="modal-title">Update artikel</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                     </div>
                     <div class="modal-body">
-                        Body
+                        <div class="form-group">
+                            <label for="judul">Judul artikel</label>
+                            <input type="text" class="form-control" id="judul" placeholder="Judul artikel">
+                        </div>
+                        <div class="form-group">
+                            <label for="desc">Deskripsi</label>                                
+                            <textarea class="form-control" name="desc" id="desc" rows="3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius quaerat, recusandae dignissimos culpa accusantium sit corporis, necessitatibus officia alias obcaecati tempore quod ipsum, aut minima assumenda odit? Modi, nemo aliquid?</textarea>                                
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" update-data>Update</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" update-data onclick="$('#form-update').submit()">Update</button>
                     </div>
                 </div>
             </div>
@@ -109,36 +140,24 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
+                        <h5 class="modal-title">Tambah Artikel</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                     </div>
                     <div class="modal-body">
-                        Body
+                        <div class="form-group">
+                            <label for="judul-create">Judul artikel</label>
+                            <input type="text" class="form-control" id="judul-create" placeholder="Judul artikel">
+                        </div>
+                        <div class="form-group">
+                            <label for="desc-create">Deskripsi</label>                                
+                            <textarea class="form-control" name="desc" id="desc-create" rows="3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius quaerat, recusandae dignissimos culpa accusantium sit corporis, necessitatibus officia alias obcaecati tempore quod ipsum, aut minima assumenda odit? Modi, nemo aliquid?</textarea>                                
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                         <button type="button" class="btn btn-primary" data-dismiss="modal" buat-data>Simpan</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Hapus</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Apakah anda yakin akan menghapus data tersebut ?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-danger" hapus-data data-dismiss="modal">Hapus</button>
                     </div>
                 </div>
             </div>
