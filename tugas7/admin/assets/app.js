@@ -12,6 +12,7 @@ $(document).ready(function(){
     });
 
     $('[hapus-data]').on('click', function(){
+      var el = $(this);
         swal({
             title: "Apakah anda yakin akan menghapus data tersebut ?",
             text: "",
@@ -24,6 +25,7 @@ $(document).ready(function(){
               swal("Data Berhasil dihapus.", {
                 icon: "success",
               });
+              el.parents('tr').remove();
             }
           });
     });
