@@ -29,3 +29,45 @@ body.admin{
 .breadcrumb{
     background-color: #e6e6e6;
 }
+
+.wrapper{
+    position: relative;
+    top: 56px;
+}
+aside{
+    width: 225px;
+    height: calc(100% - 56px);
+    position: fixed;
+    overflow-y: auto;
+    background: linear-gradient(383deg, #2992e4 0%, #3551a8 75%);
+}
+aside ul{
+    list-style: none;
+    padding: 0;
+}
+aside ul li{
+    
+    border-bottom: 1px solid white;
+}
+aside ul li a{
+    padding: 10px 25px;
+    display: block;
+    color: white;
+    text-decoration: none !important;
+    transition: all 0.25s;
+}
+aside ul li.active, aside ul li:hover{
+    background-color: #fbfbfb !important;
+}
+aside ul li.active a, aside ul li:hover a{
+    color: black;
+}
+section.content{
+    padding-left: 225px;;
+}
+.navbar-blue-dark{
+    background-color: #1a237e !important;
+}
+section.content .card{
+    box-shadow: 2px 2px 2px 0px #b8b8b8;
+}

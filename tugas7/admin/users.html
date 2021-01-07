@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>HendriCell Admin Panel</title>
+        <title>Users | HendriCell Admin Panel</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,7 +13,7 @@
     </head>
     <body class="admin">
         <nav class="navbar navbar-expand-sm navbar-dark navbar-blue-dark fixed-top">
-            <a class="navbar-brand" href="#">HC Admin Panel</a><a href="#"><</a>
+            <a class="navbar-brand" href="#">HC Admin Panel</a><a href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -31,10 +31,10 @@
         <div class="wrapper">
             <aside>
                 <ul>
-                    <li class="active"><a href="index.html">Dashboard</a></li>
-                    <li><a href="artikel.html">Artikel</a></li>
-                    <li><a href="pelanggan.html">Pelanggan</a></li>
-                    <li><a href="users.html">Users</a></li>
+                    <li class=""><a href="index.html">Dashboard</a></li>
+                    <li class=""><a href="artikel.html">Artikel</a></li>
+                    <li class=""><a href="pelanggan.html">Pelanggan</a></li>
+                    <li class="active"><a href="users.html">Users</a></li>
                 </ul>
             </aside>
             <section class="content">
@@ -42,23 +42,23 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                          <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                          <li class="breadcrumb-item active" aria-current="page">Users</li>
                         </ol>
                       </nav>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Pemasukan</h4>
-                                    <canvas id="myChart" width="200" height="200"></canvas>
+                                    <h4 class="card-title">Title</h4>
+                                    <p class="card-text">Text</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Pengeluaran</h4>
-                                    <canvas id="myChart3" width="200" height="200"></canvas>
+                                    <h4 class="card-title">Title</h4>
+                                    <p class="card-text">Text</p>
                                 </div>
                             </div>
                         </div>
@@ -67,8 +67,8 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Untung</h4>
-                                    <canvas id="myChart2" width="200" height="200"></canvas>
+                                    <h4 class="card-title">Title</h4>
+                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid voluptatem quos voluptates provident consequuntur adipisci facere repudiandae vitae, deserunt, voluptatibus ab sequi. Qui voluptatem eos enim, molestias amet necessitatibus facere!</p>
                                 </div>
                             </div>
                         </div>
@@ -85,63 +85,5 @@
         <script src="http://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="assets/app.js"></script>
-        <script>
-            var data = {
-                labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei'],
-                    datasets: [{
-                        label: '# of Votes',
-                        data: [14000, 12000, 13000, 15000, 21000],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-            }
-            var options = {
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            }
-            var ctx = document.getElementById('myChart');
-            ctx.height = 50;
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                responsive: true,
-                data: data,
-                options: options
-            });
-            var ctx2 = document.getElementById('myChart2');
-            ctx2.height = 50;
-            var myLineChart = new Chart(ctx2, {
-                type: 'line',
-                data: data,
-                options: options
-            });
-
-            var ctx3 = document.getElementById('myChart3');
-            ctx3.height = 50;
-            var myDoughnutChart = new Chart(ctx3, {
-                type: 'doughnut',
-                data: data,
-                options: options
-            });
-        </script>
     </body>
 </html>
