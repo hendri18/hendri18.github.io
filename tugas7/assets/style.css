@@ -1,3 +1,47 @@
+body{
+    background-color: whitesmoke;
+    color: #2f1c6a;
+}
+.parallax-window {
+    min-height: 60vh;
+    background: transparent;
+}
 .bg-dark-blue{
     background-color: #1a237e !important;
+}
+.bg-blue{
+    background-color: #1565c0  !important;
+}
+.card{
+    box-shadow: 2px 2px 2px 0px #b8b8b8;
+}
+
+.h-100{
+    height: 100%;
+}
+
+footer p{
+    color: #afd5ff;
+}
+footer p a{
+    text-decoration: none !important;
+}
+
+.carousel-control-next-icon{
+    background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='%232f1c6a' viewBox='0 0 8 8'><path d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/></svg>") !important;
+}
+
+.carousel-control-prev-icon{
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%232f1c6a' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+
+@media(max-width: 768px){
+    .carousel-item{
+        min-height: 120px;
+    }
+    .carousel-inner p{
+        max-width: 75%;
+        margin: auto
+    }
 }
