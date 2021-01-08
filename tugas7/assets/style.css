@@ -1,5 +1,5 @@
 body{
-    background-color: whitesmoke;
+    background-color: #dedede;
     color: #2f1c6a;
 }
 .parallax-window {
@@ -51,6 +51,40 @@ footer p a{
     position: absolute;
     bottom: 0;
     right: 20px;
+}
+
+#keuntungan .card.bg-gradasi{
+    height: 403px;
+}
+#keuntungan .card-content{
+    height: 320px;
+}
+
+.top-border{
+    border-top: 15px solid #1565c0;
+}
+
+.bg-promo{
+    background-image: url(helm.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+    background-position: center;
+    filter: blur(5px);
+}
+.p-relative{
+    position: relative;
+}
+.centered{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    background: rgb(202 202 202 / 50%);
+    color: white;
+    padding: 20px;
 }
 @media(max-width: 768px){
     .carousel-item{
