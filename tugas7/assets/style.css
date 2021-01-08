@@ -12,6 +12,11 @@ body{
 .bg-blue{
     background-color: #1565c0  !important;
 }
+
+.bg-gradasi{
+    background: linear-gradient(383deg, #2992e4 0%, #3551a8 75%);
+}
+
 .card{
     box-shadow: 2px 2px 2px 0px #b8b8b8;
 }
