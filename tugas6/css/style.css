@@ -1,0 +1,22 @@
+body{
+    background-color: whitesmoke;
+}
+#carouselSepokat{
+    margin-top: 50px;
+    margin-bottom: 25px;
+    background: rgba(0,0,0,0.5);
+}
+.carousel-image{
+    height: 400px;
+    background-size: cover !important;
+}
+
+footer{
+    background-color: #343a40;
+    color: white;
+}
+@media(max-width: 768px){
+    .carousel-image{
+        max-height: 200px;
+    }
+}
