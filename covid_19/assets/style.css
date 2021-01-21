@@ -1,0 +1,31 @@
+html, body{
+    height: 100%;
+}
+body{
+    background: url(virus.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.container-main{
+    padding-top: 65px;
+    padding-bottom: 65px;
+    height: 100%;
+    display: none;
+}
+
+.jumbotron{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: calc(100vh - 166px);
+    overflow-y: scroll;
+}
+
+.arrow-right{
+    height: 17px;
+    vertical-align: baseline;
+}
