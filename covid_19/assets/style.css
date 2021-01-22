@@ -57,6 +57,7 @@ body{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 144px;
 }
 
 .tidur-bg{
@@ -82,7 +83,7 @@ body{
 
 .bersih-bg{
     background: url('clean.png');
-    background-size: contain;
+    background-size: 144px;
     background-repeat: no-repeat;
     background-position: center;
 }
