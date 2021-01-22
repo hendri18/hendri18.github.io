@@ -28,7 +28,7 @@
                             <a class="nav-link" href="gejala.php">Gejala Covid-19</a>
                         </li>
                         <li class="nav-item <?php echo ($page == 'pencegahan' ? 'active' : '') ?>">
-                            <a class="nav-link" href="pecegahan.php">Pencegahan</a>
+                            <a class="nav-link" href="pencegahan.php">Pencegahan</a>
                         </li>
                         <li class="nav-item <?php echo ($page == 'faq' ? 'active' : '') ?>">
                             <a class="nav-link" href="faq.php">FAQ seputar COVID-19</a>

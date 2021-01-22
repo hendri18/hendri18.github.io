@@ -20,12 +20,37 @@ body{
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    max-width: 90%;
+    width: 90%;
     max-height: calc(100vh - 166px);
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .arrow-right{
     height: 17px;
     vertical-align: baseline;
+}
+
+.card-gejala .card{
+    height: 100%;
+}
+
+.img-container img{
+    width: 100%;
+}
+
+.btn-link{
+    text-decoration: none !important;
+    color: #ae0000 !important;
+    white-space: normal !important;
+    text-align: left !important;
+}
+
+@media(max-width: 768px){
+    .btn.btn-danger{
+        font-size: 15px;
+    }
+    .arrow-right{
+        height: 12px;
+        vertical-align: unset;
+    }
 }
