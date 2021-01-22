@@ -106,7 +106,7 @@ include "header.php" ?>
             </div>
         </div>
         <p class="lead">
-            <a class="btn btn-danger btn-lg float-right" href="faq.php" role="button">FAQ seputar COVID-19 <img src="assets/arrow.png" alt="arrow-right" class="arrow-right"></a>
+            <a class="btn btn-danger btn-lg float-right" href="pola_hidup.php" role="button">Pola Hidup sehat saat COVID-19 <img src="assets/arrow.png" alt="arrow-right" class="arrow-right"></a>
         </p>
     </div>
 </div>

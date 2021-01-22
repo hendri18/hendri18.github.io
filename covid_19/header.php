@@ -30,6 +30,9 @@
                         <li class="nav-item <?php echo ($page == 'pencegahan' ? 'active' : '') ?>">
                             <a class="nav-link" href="pencegahan.php">Pencegahan</a>
                         </li>
+                        <li class="nav-item <?php echo ($page == 'pola_hidup' ? 'active' : '') ?>">
+                            <a class="nav-link" href="pola_hidup.php">Pola Hidup Sehat saat Pandemi</a>
+                        </li>
                         <li class="nav-item <?php echo ($page == 'faq' ? 'active' : '') ?>">
                             <a class="nav-link" href="faq.php">FAQ seputar COVID-19</a>
                         </li>

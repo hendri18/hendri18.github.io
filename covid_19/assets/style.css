@@ -30,7 +30,7 @@ body{
     vertical-align: baseline;
 }
 
-.card-gejala .card{
+.card-full-height .card{
     height: 100%;
 }
 
@@ -44,6 +44,56 @@ body{
     white-space: normal !important;
     text-align: left !important;
 }
+
+.sayur-bg{
+    background: url('sayur.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.rokok-bg{
+    background: url('rokok.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.tidur-bg{
+    background: url('sleep.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.positif-bg{
+    background: url('positive.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.olahraga-bg{
+    background: url('olahraga.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bersih-bg{
+    background: url('clean.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card-pola-hidup .card-body{
+    background: rgba(0,0,0,0.7);
+    color: #FFFFFF !important;
+    border-radius: 2px;
+    height: 180px;
+}
+
 
 @media(max-width: 768px){
     .btn.btn-danger{
