@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookshelf Apps</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="">Bookshelf Apps</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="add_book_section">
+            <div id="add_book_container">
+                <form id="add_book_form" class="form-book">
+                    <h3>Tambah buku baru</h3>
+                    <div class="input_wrapper">
+                        <label for="title">Judul</label>
+                        <input type="text" name="title" id="title" required>
+                    </div>
+                    <div class="input_wrapper">
+                        <label for="author">Penulis</label>
+                        <input type="text" name="author" id="author" required>
+                    </div>
+                    <div class="input_wrapper">
+                        <label for="year">Tahun</label>
+                        <input type="number" name="year" id="year" required>
+                    </div>
+                    <div class="input_wrapper">
+                        <input type="checkbox" name="isComplete" id="isComplete">
+                        <label for="isComplete">Selesai dibaca</label>
+                    </div>
+                    <button type="submit" class="button-add">+ Tambah</button>
+                </form>
+                <form id="edit_book_form" class="form-book hide">
+                    <h3>Edit Buku</h3>
+                    <input type="hidden" name="id" id="id_book">
+                    <div class="input_wrapper">
+                        <label for="edit_title">Judul</label>
+                        <input type="text" name="edit_title" id="edit_title" required>
+                    </div>
+                    <div class="input_wrapper">
+                        <label for="edit_author">Penulis</label>
+                        <input type="text" name="edit_author" id="edit_author" required>
+                    </div>
+                    <div class="input_wrapper">
+                        <label for="edit_year">Tahun</label>
+                        <input type="number" name="edit_year" id="edit_year" required>
+                    </div>
+                    <div class="input_wrapper">
+                        <input type="checkbox" name="edit_isComplete" id="edit_isComplete">
+                        <label for="edit_isComplete">Selesai dibaca</label>
+                    </div>
+                    <button type="button" id="cancel_edit" class="button-red">Cancel</button>
+                    <button type="submit" class="button-edit">Update</button>
+                </form>
+            </div>
+        </section>
+        <section id="book_list_section">
+            <div>
+                <input type="text" id="search" placeholder="Cari Buku">
+            </div>
+            <div id="book_list">
+                <div id="unread">
+                    <h3>Belum selesai dibaca</h3>
+                    <div id="unread_list"></div>
+                </div>
+                <div id="read">
+                    <h3>Selesai dibaca</h3>
+                    <div id="read_list"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="js/dom.js"></script>
+    <script src="js/book.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
