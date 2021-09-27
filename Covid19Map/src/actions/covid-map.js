@@ -8,6 +8,15 @@ const covid_map = () => {
         am4maps.MapChart
     );
     chart.geodata = am4geodata_worldLow;
+    chart.projection = new am4maps.projections.Miller();
+    chart.chartContainer.wheelable = false;
+    chart.zoomControl = new am4maps.ZoomControl();
+    chart.zoomControl.fontSize = 22;
+    chart.zoomControl.width = 50;
+    var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+    polygonSeries.useGeodata = true;
+    polygonSeries.mapPolygons.template.cursorOverStyle = am4core.MouseCursorStyle.pointer;
+    polygonSeries.exclude = ["AQ"];
 
 }
 
