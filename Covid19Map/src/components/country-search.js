@@ -6,7 +6,7 @@ class CountrySearch extends HTMLElement {
 
     render() {
         this.innerHTML = `
-            <input type="search" id="search-country" class="form-control search-input" placeholder="Cari Negara">
+            <input type="text" id="country-search" class="form-control search-input" placeholder="Cari Negara">
         `;
     }
 }

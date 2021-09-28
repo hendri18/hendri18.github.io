@@ -1,18 +1,22 @@
 import '../components/country-list.js';
 import CovidMap from "../actions/covid-map.js";
 import FetchData from "../actions/fetch-data.js";
-import $ from "jquery";
 
 const main = async () => {
     CovidMap();
     const countryList = document.querySelector("country-list");
+    const searchCountry = document.getElementById('country-search');
     const getCountries = await FetchData.getCountries();
     if(getCountries.countries) countryList.countries = getCountries.countries;
 
-    $('#search-country').on('keyup', (heh)=>{
-        console.log(this)
-        countryList.countries = getCountries.countries.filter((item) => item.name.indexOf($(this).val()));
+    searchCountry.addEventListener('keyup', (e) => {
+        let value = e.target.value ?? '';
+        countryList.countries = getCountries.countries.filter((item) => (item.name.toLowerCase()).indexOf(value.toLowerCase()) !== -1);
     });
+
+
+
+    chart.zoomToMapObject(polygonSeries.getPolygonById('IN'));
 };
 
 export default main;

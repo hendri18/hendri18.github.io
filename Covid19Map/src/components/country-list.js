@@ -17,11 +17,9 @@ class CountryList extends HTMLElement {
     render() {
         this.innerHTML = `
         <div class="card card-country-list mt-4">
-            <div class="list-group list-group-flush">
-                <div id="country-list-item">
-                    ${this._countries.length < 1 ? '<div class="list-group-item"><strong>Negara tidak ditemukan</strong></div>' : this._countries.map((item, index) => `<a class="list-group-item">${item.name}</a>`).join('')}
-                </div>
-            </div>
+            <ul id="country-list-item" class="list-group list-group-flush">
+                ${this._countries.length < 1 ? '<li class="list-group-item"><strong>Negara tidak ditemukan</strong></li>' : this._countries.map((item, index) => `<li class="list-group-item" data-country-code="${item.iso2}">${item.name}</li>`).join('')}
+            </ul>
         </div>
         `;
     }
