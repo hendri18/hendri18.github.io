@@ -26,7 +26,7 @@ class FetchData {
                 if(response.data) return response.data;
                 return false;
             }).catch((err)=>{
-                alert(err)
+                alert('Data belum tersedia');
                 return false;
             });
     }
@@ -37,7 +37,7 @@ class FetchData {
                 if(response.data) return response.data;
                 return false;
             }).catch((err)=>{
-                alert(err)
+                alert('Data belum tersedia');
                 return false;
             });
     }

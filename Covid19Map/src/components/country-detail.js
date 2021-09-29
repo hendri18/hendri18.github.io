@@ -1,13 +1,21 @@
+import moment from "moment";
 class CountryDetail extends HTMLElement {
 
     constructor() {
         super();
-        this._country = [];
+        this._country = null;
     }
 
     set country(country) {
-        this._country = country;
+        this._country = country ?? null;
         this.render();
+        const closeBtn = document.createElement('div');
+        closeBtn.classList.add('close');
+        closeBtn.innerHTML = '&times;';
+        closeBtn.addEventListener("click", () => {
+            document.getElementById('card-country-detail-backdrop').style.display = 'none';
+        });
+        document.getElementById('card-country-detail-backdrop').appendChild(closeBtn)
     }
 
     connectedCallback(){
@@ -16,11 +24,15 @@ class CountryDetail extends HTMLElement {
 
     render() {
         this.innerHTML = `
-        <div class="card border-warning mb-3" style="max-width: 18rem;">
-            <div class="card-header bg-transparent border-warning">${this._country.name ?? ''}</div>
-            <div class="card-body text-warning">
-                <h5 class="card-title">Success card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div id="card-country-detail-backdrop" style="${this._country ? 'display:block' : 'display:none'}">
+            <div class="card border-warning mb-3 card-country-detail" style="width: 22rem;">
+                <div class="card-header bg-warning border-warning">${this._country ? this._country.name.toLocaleUpperCase() : '-'}</div>
+                <div class="card-body">
+                    <p class="card-text">Total Kasus Terkonfirmasi : ${this._country ? this._country.confirmed.value : '-'}</p>
+                    <p class="card-text">Total Sembuh : ${this._country ? this._country.recovered.value : '-'}</p>
+                    <p class="card-text">Total Kematian: ${this._country ? this._country.deaths.value : '-'}</p>
+                    <p class="text-end m-0"><small><i>Last Updated : ${this._country ? moment(this._country.lastUpdate).format("DD, MMM YYYY")  : ''}</i></small></p>
+                </div>
             </div>
         </div>
         `;

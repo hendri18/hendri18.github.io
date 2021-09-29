@@ -16,11 +16,7 @@ class NavTopBar extends HTMLElement {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Apa itu COVID-19?</a>
-                    </li>
-                </ul>
+                
             </div>
         </nav>
         `;

@@ -3,7 +3,7 @@ import * as am4core from "@amcharts/amcharts4/core"
 import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow";
 import am4geodata_lang_EN from "@amcharts/amcharts4-geodata/lang/EN"; 
 
-const CovidMap = () => {
+const CovidMap = (onClickEvent) => {
     let chart = am4core.create(
         document.getElementById("covid-map"),
         am4maps.MapChart
@@ -30,17 +30,15 @@ const CovidMap = () => {
     worldMapTemplate.applyOnClones = true;
     worldMapTemplate.togglable = true;
     worldMapTemplate.tooltipText = "{name}";
-    let lastSelected;
-    worldMapTemplate.events.on("hit", function(ev) {
-        if (lastSelected) {
-          lastSelected.isActive = false;
-        }
+  
+    let ss = worldMapTemplate.states.create("active");
+    ss.properties.fill = '#fd7e14';
+    worldMapTemplate.events.on("hit", (ev) => {
+      let dataCountryMap = ev.target.dataItem.dataContext;
+        onClickEvent(dataCountryMap.name, dataCountryMap.id);
         ev.target.series.chart.zoomToMapObject(ev.target);
-        if (lastSelected !== ev.target) {
-          lastSelected = ev.target;
-        }
     });
-
+    
     window.chart = chart;
     window.polygonSeries = polygonSeries;
     window.worldMapTemplate = worldMapTemplate;

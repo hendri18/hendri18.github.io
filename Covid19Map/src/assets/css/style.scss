@@ -33,6 +33,9 @@ html, body{
   outline: none;
   padding-left: 40px;
 }
+.map-container{
+  position: relative;
+}
 .card-country-list{
   box-shadow: 2px 2px 4px $grey;
   #country-list-item{
@@ -40,10 +43,28 @@ html, body{
     overflow-y: auto;
 
     .list-group-item{
+      background: url(../images/arrow.png);
+      background-size: 22px;
+      background-repeat: no-repeat;
+      background-position: right 10px center;
       cursor: pointer;
     }
   }
 }
+#card-country-detail-backdrop{
+  .card-country-detail{
+    position: absolute;
+    z-index: 99;
+    left: 20px;
+    top: 10px;
+  }
+  .close{
+    color: $white;
+    font-size: 32px;
+    display: none;
+  }
+}
+
 #covid-map{
   width: 100%;
   height: calc(100vh - 90px); 
@@ -51,6 +72,9 @@ html, body{
 }
 
 @media(max-width: 768px){
+  .map-container{
+    position: unset;
+  }
   .card-country-list{
     #country-list-item{
       max-height: 250px
@@ -58,5 +82,32 @@ html, body{
   }
   #covid-map{
     height: 300px;
+  }
+  #card-country-detail-backdrop{
+    position: fixed;
+    z-index: 9999;
+    background: rgba(0,0,0,0.7);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    .card-country-detail{
+      position: absolute;
+      z-index: 99;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    .close{
+      display: inline-block;
+      position: absolute;
+      top: 32%;
+      left: 90%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+    }
   }
 }
