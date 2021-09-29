@@ -104,10 +104,8 @@ html, body{
     .close{
       display: inline-block;
       position: absolute;
-      top: 32%;
-      left: 90%;
-      -webkit-transform: translateX(-50%) translateY(-50%);
-      transform: translateX(-50%) translateY(-50%);
+      top: 0;
+      right: 10px;
     }
   }
 }
