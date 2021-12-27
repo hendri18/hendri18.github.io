@@ -1,7 +1,3 @@
-function drawResult(){
-    
-}
-
 function hitung(){
     var n = Number(document.getElementById('n').value);
     var c = Number(document.getElementById('c').value);
