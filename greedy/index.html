@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greedy</title>
+    <style>
+        html, body{
+            margin: 0;
+            padding: 0;
+            font-family: Verdana;
+            background-color: #525659;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        *, *:before, *:after {
+        box-sizing: inherit;
+        }
+        .center{
+            display: flex;
+            justify-content: center;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+        .panel{
+            background-color: #ffffff;
+            padding: 10px;
+            margin-top: 20px;
+            box-shadow: 9px 10px 9px #252525;
+            margin: 20px;
+        }
+        .form{
+            width: 30%;
+        }
+        .result{
+            width: 70%;
+        }
+        input{
+            outline: none;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #cacaca;
+            width: 100%;
+        }
+        table{
+            margin: 0 auto;
+            width: 100%;
+        }
+        .text-center{
+            text-align: center;
+        }
+
+        .btn-hitung{
+            width: 100%;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: #ffffff;
+            border-radius: 5px;
+            border: 0;
+            padding: 10px;
+            text-transform: uppercase;
+            font-size: 24px;
+        }
+        .btn-hitung:hover{
+            opacity: 0.8;
+        }
+        noscript{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .green{
+            background-color: #388e3c;
+            color: #ffffff;
+            padding: 10px;
+            border-bottom: 1px solid #ffffff;
+        }
+
+        .red{
+            background-color: #e53935;
+            color: #ffffff;
+            padding: 10px;
+            border-bottom: 1px solid #ffffff;
+        }
+        @media(max-width: 768px){
+            .center{
+                flex-direction: column;
+            }
+            .form{
+                width: auto;
+            }
+            .result{
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <noscript>Pak punten, tolong javascriptnya di-allow/enable pak...</noscript>
+    <div class="center">
+        <div class="panel form">
+            
+            <h3 class="text-center">Problem Peti Kemas kapal</h3>
+            <hr>
+            <table>
+                <tr>
+                    <td width="60">n: </td>
+                    <td><input type="number" min="0" name="n" placeholder="n" value="8" id="n"></td>
+                </tr>
+                <tr>
+                    <td width="60">C: </td>
+                    <td><input type="number" min="0" name="c" placeholder="C" value="400" id="c"></td>
+                </tr>
+            </table>
+            <hr>
+            <table id="table-w">
+                <tr>
+                    <td width="60">w<sub>1</sub>: </td>
+                    <td><input type="number" min="0" name="w[]" placeholder="w" value="100"></td>
+                </tr>
+                <tr>
+                    <td width="60">w<sub>2</sub>: </td>
+                    <td><input type="number" min="0" name="w[]" placeholder="w" value="200"></td>
+                </tr>
+                <tr>
+                    <td width="60">w<sub>3</sub>: </td>
+                    <td><input type="number" min="0" name="w[]" placeholder="w" value="50"></td>
+                </tr>
+                <tr>
+                    <td width="60">w<sub>4</sub>: </td>
+                    <td><input type="number" min="0" name="w[]" placeholder="w" value="90"></td>
+                </tr>
+                <tr>
+                    <td width="60">w<sub>5</sub>: </td>
+                    <td><input type="number" min="0" name="w[]" placeholder="w" value="150"></td>
+                </tr>
+                <tr>
+                    <td width="60">w<sub>6</sub>: </td>
+                    <td><input type="number" min="0" name="w[]" placeholder="w" value="50"></td>
+                </tr>
+                <tr>
+                    <td width="60">w<sub>7</sub>: </td>
+                    <td><input type="number" min="0" name="w[]" placeholder="w" value="20"></td>
+                </tr>
+                <tr>
+                    <td width="60">w<sub>8</sub>: </td>
+                    <td><input type="number" min="0" name="w[]" placeholder="w" value="80"></td>
+                </tr>
+            </table>
+            <br>
+            <button type="button" class="btn-hitung" onclick="hitung()">Hitung</button>
+            
+        </div>
+        <div class="panel result" id="result">
+            
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
