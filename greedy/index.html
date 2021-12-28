@@ -89,6 +89,15 @@
             padding: 10px;
             border-bottom: 1px solid #ffffff;
         }
+        table.kelompok{
+            text-align: left;
+            border-collapse: collapse;
+        }
+        table.kelompok td, table.kelompok th{
+            border: 1px solid grey;
+            padding: 3px;
+            font-size: 12px;
+        }
         @media(max-width: 768px){
             .center{
                 flex-direction: column;
@@ -120,43 +129,87 @@
                 </tr>
             </table>
             <hr>
-            <table id="table-w">
-                <tr>
-                    <td width="60">w<sub>1</sub>: </td>
-                    <td><input type="number" min="0" name="w[]" placeholder="w" value="100"></td>
-                </tr>
-                <tr>
-                    <td width="60">w<sub>2</sub>: </td>
-                    <td><input type="number" min="0" name="w[]" placeholder="w" value="200"></td>
-                </tr>
-                <tr>
-                    <td width="60">w<sub>3</sub>: </td>
-                    <td><input type="number" min="0" name="w[]" placeholder="w" value="50"></td>
-                </tr>
-                <tr>
-                    <td width="60">w<sub>4</sub>: </td>
-                    <td><input type="number" min="0" name="w[]" placeholder="w" value="90"></td>
-                </tr>
-                <tr>
-                    <td width="60">w<sub>5</sub>: </td>
-                    <td><input type="number" min="0" name="w[]" placeholder="w" value="150"></td>
-                </tr>
-                <tr>
-                    <td width="60">w<sub>6</sub>: </td>
-                    <td><input type="number" min="0" name="w[]" placeholder="w" value="50"></td>
-                </tr>
-                <tr>
-                    <td width="60">w<sub>7</sub>: </td>
-                    <td><input type="number" min="0" name="w[]" placeholder="w" value="20"></td>
-                </tr>
-                <tr>
-                    <td width="60">w<sub>8</sub>: </td>
-                    <td><input type="number" min="0" name="w[]" placeholder="w" value="80"></td>
-                </tr>
+            <table id="table-w" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td width="60">w<sub>1</sub>: </td>
+                        <td><input type="number" min="0" name="w[]" placeholder="w" value="100"></td>
+                    </tr>
+                    <tr>
+                        <td width="60">w<sub>2</sub>: </td>
+                        <td><input type="number" min="0" name="w[]" placeholder="w" value="200"></td>
+                    </tr>
+                    <tr>
+                        <td width="60">w<sub>3</sub>: </td>
+                        <td><input type="number" min="0" name="w[]" placeholder="w" value="50"></td>
+                    </tr>
+                    <tr>
+                        <td width="60">w<sub>4</sub>: </td>
+                        <td><input type="number" min="0" name="w[]" placeholder="w" value="90"></td>
+                    </tr>
+                    <tr>
+                        <td width="60">w<sub>5</sub>: </td>
+                        <td><input type="number" min="0" name="w[]" placeholder="w" value="150"></td>
+                    </tr>
+                    <tr>
+                        <td width="60">w<sub>6</sub>: </td>
+                        <td><input type="number" min="0" name="w[]" placeholder="w" value="50"></td>
+                    </tr>
+                    <tr>
+                        <td width="60">w<sub>7</sub>: </td>
+                        <td><input type="number" min="0" name="w[]" placeholder="w" value="20"></td>
+                    </tr>
+                    <tr>
+                        <td width="60">w<sub>8</sub>: </td>
+                        <td><input type="number" min="0" name="w[]" placeholder="w" value="80"></td>
+                    </tr>
+                </tbody>
             </table>
             <br>
             <button type="button" class="btn-hitung" onclick="hitung()">Hitung</button>
-            
+            <div>
+                <br>
+                <hr>
+                <br>
+                <table class="kelompok">
+                    <thead>
+                        <tr>
+                            <th>Kelompok 2</th>
+                            <th colspan="2">Greedy</th>
+                        </tr>
+                        <tr>
+                            <th>No.</th>
+                            <th>NPM</th>
+                            <th>NAMA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>0619104024</td>
+                            <td>Hendri Heryanto</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>0619104001</td>
+                            <td>Wendi Rizaldi</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>0619104004</td>
+                            <td>Petrus Reza</td>
+                        </tr>
+                            <td>4</td>
+                            <td>0619104021</td>
+                            <td>Agung Hartanto</td>
+                        <tr>
+                            <td>5</td>
+                            <td>0619104005</td>
+                            <td>Hendry Yan'gar</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="panel result" id="result">
             
