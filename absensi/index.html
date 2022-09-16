@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <img id="loading" src="loading.gif" width="50" height="50">
+    <div id="percen"></div>
+    <div style="position: relative" class="margin">
+        <video onplay="onPlay(this)" id="inputVideo" autoplay muted width="480" height="360"></video>
+        <canvas id="overlay" />
+    </div>
+    <div id="result"></div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="js/face-api.min.js"></script>
+    <script>
+        //TODO: pilihan kamera depan belakang
+        //TODO: ambil data berdasarkan id gambar jika ketemu
+        //TODO: fungsi ngambil gambar pekerja
+        //TODO: animasi scan
+        //TODO: update animasi scan
+        //TODO: kalo nilai < 0.55 kasih valiadsi ngulang ampe 3-5 kali
+        //TODO: kalo dah absen gk perlu discan + kasih alert
+        //TODO: alert permission denied camera
+        //TODO: alert module gk ke load
+        //TODO: alert photo gk ada/ gk ke load
+        //TODO: alert kalo mukanya gk ketemu, absen manual
+        $(document).ready(function() {
+            run();
+        });
+        const MODEL_DIR = 'weights';
+        const canvas = document.getElementById('overlay');
+        const mtcnnForwardParams = {
+            // number of scaled versions of the input image passed through the CNN
+            // of the first stage, lower numbers will result in lower inference time,
+            // but will also be less accurate
+            maxNumScales: 10,
+            // scale factor used to calculate the scale steps of the image
+            // pyramid used in stage 1
+            scaleFactor: 0.709,
+            // the score threshold values used to filter the bounding
+            // boxes of stage 1, 2 and 3
+            scoreThresholds: [0.6, 0.7, 0.7],
+            // mininum face size to expect, the higher the faster processing will be,
+            // but smaller faces won't be detected
+            minFaceSize: 200
+        }
+        const employee_faces =  [];
+        function loading(set){
+            const loading =  document.getElementById('loading');
+            set ? loading.style.display = 'block' : loading.style.display = 'none';
+        }
+        /** init js */
+        async function run() {
+            // load the models
+            document.getElementById('percen').innerHTML = 'loading module 1';
+            await faceapi.loadSsdMobilenetv1Model(MODEL_DIR)
+            document.getElementById('percen').innerHTML = 'loading module 2';
+            await faceapi.loadMtcnnModel(MODEL_DIR)
+            document.getElementById('percen').innerHTML = 'loading module 3';
+            await faceapi.loadFaceLandmarkModel(MODEL_DIR)
+            document.getElementById('percen').innerHTML = 'loading module 4';
+            await faceapi.loadFaceRecognitionModel(MODEL_DIR)
+            document.getElementById('percen').innerHTML = 'loading data start..';
+            
+            const labels = ['polisi','hendri1','jokowi' ,'mega'];
+            const total = labels.length;
+            console.log(total)
+            let current_img_count = 0;
+            await Promise.all(
+                labels.map(async label => {
+                    // fetch image data from urls and convert blob to HTMLImage element
+                    const imgUrl = `images/${label}.png`
+                    const img = await faceapi.fetchImage(imgUrl)
+                    
+                    // detect the face with the highest score in the image and compute it's landmarks and face descriptor
+                    const fullFaceDescription = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
+                    if (!fullFaceDescription) {
+                        return lable;
+                    }
+                    
+                    const faceDescriptors = [fullFaceDescription.descriptor]
+                    employee_faces.push(new faceapi.LabeledFaceDescriptors(label, faceDescriptors));
+                    current_img_count++;
+                    console.log(current_img_count)
+                    document.getElementById('percen').innerHTML = 'loading data...' + ((current_img_count/total)*100) + '%';
+                    return label;
+                })
+            );
+            if(employee_faces.length < 1){
+                loading(false);
+                alert('eweuh muka nu kadaftar !');
+                return;
+            }
+            console.log(employee_faces)
+            // try to access users webcam and stream the images
+            // to the video element
+            const videoEl = document.getElementById('inputVideo')
+            navigator.getUserMedia(
+                { video: {} },
+                stream => videoEl.srcObject = stream,
+                err => console.error(err)
+            )
+            loading(false);
+            document.getElementById('percen').innerHTML ='100%';
+        }
+
+        const options = new faceapi.MtcnnOptions({ minFaceSize: 100, scaleFactor: 0.8 })
+
+        async function onPlay(videoEl) {
+            if(employee_faces.length < 1){
+                loading(false);
+                alert('eweuh muka !');
+                return;
+            }
+             /** mtcnn.js */
+            const mtcnnResults = await faceapi.mtcnn(document.getElementById('inputVideo'), mtcnnForwardParams)
+
+            /** allFacesMtcnn.js */
+            const input = document.getElementById('inputVideo')
+            const fullFaceDescriptions = await faceapi.detectAllFaces(videoEl, options).withFaceLandmarks().withFaceDescriptors()
+            console.log('fullFaceDescriptions:',  fullFaceDescriptions);
+            if(fullFaceDescriptions.length < 1){
+                setTimeout(() => onPlay(videoEl));
+                return;
+            }
+            // add loading and tell user dont move
+
+            /** computeReferenceDescriptors.js */
+            const labels = ['sheldon/sheldon1','raj/raj1','hendri/hendri1'];
+            // const labels = ['sheldon/sheldon1','raj/raj1','leonard/leonard1','howard/howard1','hendri/hendri1'];
+            console.log('m')
+
+            // const labeledFaceDescriptors = await Promise.all(
+            //     labels.map(async label => {
+            //         // fetch image data from urls and convert blob to HTMLImage element
+            //         const imgUrl = `../examples/images/${label}.png`
+            //         const img = await faceapi.fetchImage(imgUrl)
+                    
+            //         // detect the face with the highest score in the image and compute it's landmarks and face descriptor
+            //         const fullFaceDescription = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
+            //         if (!fullFaceDescription) {
+            //             throw new Error(`no faces detected for ${label}`)
+            //         }
+                    
+            //         const faceDescriptors = [fullFaceDescription.descriptor]
+            //         return new faceapi.LabeledFaceDescriptors(label, faceDescriptors)
+            //     })
+            // )
+            console.log('n')
+            /** faceRecognition.js */
+            const maxDescriptorDistance = 0.6;
+            const faceMatcher = new faceapi.FaceMatcher(employee_faces, maxDescriptorDistance);
+            console.log(faceMatcher, fullFaceDescriptions)
+            const results = fullFaceDescriptions.map(fd => faceMatcher.findBestMatch(fd.descriptor))
+            if(results.length < 1){
+                setTimeout(() => onPlay(videoEl));
+                return;
+            }
+            console.log(results.length, results) 
+            
+            /** drawResults.js */
+            results.forEach((bestMatch, i) => {
+                // const box = fullFaceDescriptions[i].detection.box
+                const text = bestMatch.toString()
+                document.getElementById('result').innerHTML = text;
+                // const drawBox = new faceapi.draw.DrawBox(box, { label: text })
+                // drawBox.draw(canvas)
+            })
+            
+
+
+            // end
+            setTimeout(() => onPlay(videoEl))
+        }
+
+        
+    </script>
+</body>
+</html>
