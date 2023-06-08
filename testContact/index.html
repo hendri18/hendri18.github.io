@@ -27,7 +27,7 @@
                     }
 
                     // Create a new WebAuthn passkey
-                    function createWebAuthnPasskey() {
+                    async function createWebAuthnPasskey() {
                       const publicKey = {
                         challenge: Uint8Array.from('RandomChallengeString', c => c.charCodeAt(0)),
                         rp: {
@@ -49,17 +49,30 @@
                         timeout: 60000, // 1 minute
                         attestation: 'direct',
                       };
-
-                      return navigator.credentials.create({ publicKey })
-                        .then((newCredentialInfo) => {
-                          const myJSON = JSON.stringify(newCredentialInfo);
-document.getElementById("bambang").innerHTML = myJSON;
-                          const credential = newCredentialInfo;
-                          alert('New WebAuthn passkey created:', credential);
-                        })
-                        .catch((error) => {
-                          alert('Error creating WebAuthn passkey:', error);
+                      try{
+                        const credential = await navigator.credentials.create({
+                          publicKey: publicKey
                         });
+                        
+                        alert(credential.id)
+                      }catch(error){
+                        alert(error)
+                      }
+                      
+
+
+
+                      // return navigator.credentials.create({ publicKey })
+                      //   .then((newCredentialInfo) => {
+                      //     const response = publicKeyCredential.response;
+                      //     // const myJSON = JSON.stringify(newCredentialInfo);
+                      //     document.getElementById("bambang").innerHTML = myJSON;
+                      //     const credential = newCredentialInfo;
+                      //     alert('New WebAuthn passkey created:', credential);
+                      //   })
+                      //   .catch((error) => {
+                      //     alert('Error creating WebAuthn passkey:', error);
+                      //   });
                     }
 
         function openContactPicker() {
