@@ -18,7 +18,47 @@
     <button onclick="openContactPicker()">Open my phone contacts</button>
     <br><br>
     <button onclick="openContactPickerFind()">(find) Open my phone contacts</button>
+    <br><br>
+    <button onclick="createWebAuthnPasskey()">Test passkey</button>
     <script>
+       if (!window.PublicKeyCredential) {
+                      alert('WebAuthn is not supported in this browser.');
+                    }
+
+                    // Create a new WebAuthn passkey
+                    function createWebAuthnPasskey() {
+                      const publicKey = {
+                        challenge: Uint8Array.from('RandomChallengeString', c => c.charCodeAt(0)),
+                        rp: {
+                          name: 'Example Website'
+                        },
+                        user: {
+                          id: Uint8Array.from('UniqueUserID', c => c.charCodeAt(0)),
+                          name: 'john.doe@example.com',
+                          displayName: 'John Doe'
+                        },
+                        pubKeyCredParams: [{
+                          type: 'public-key',
+                          alg: -7 // ES256
+                        }],
+                        authenticatorSelection: {
+                          authenticatorAttachment: 'platform',
+                          userVerification: 'preferred'
+                        },
+                        timeout: 60000, // 1 minute
+                        attestation: 'direct',
+                      };
+
+                      return navigator.credentials.create({ publicKey })
+                        .then((newCredentialInfo) => {
+                          const credential = newCredentialInfo;
+                          alert('New WebAuthn passkey created:', credential);
+                        })
+                        .catch((error) => {
+                          alert('Error creating WebAuthn passkey:', error);
+                        });
+                    }
+
         function openContactPicker() {
       const supported = "contacts" in navigator && "ContactsManager" in window;
 
