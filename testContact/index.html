@@ -20,6 +20,7 @@
     <button onclick="openContactPickerFind()">(find) Open my phone contacts</button>
     <br><br>
     <button onclick="createWebAuthnPasskey()">Test passkey</button>
+    <div id="bambang"></div>
     <script>
        if (!window.PublicKeyCredential) {
                       alert('WebAuthn is not supported in this browser.');
@@ -51,6 +52,8 @@
 
                       return navigator.credentials.create({ publicKey })
                         .then((newCredentialInfo) => {
+                          const myJSON = JSON.stringify(newCredentialInfo);
+document.getElementById("bambang").innerHTML = myJSON;
                           const credential = newCredentialInfo;
                           alert('New WebAuthn passkey created:', credential);
                         })
