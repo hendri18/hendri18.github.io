@@ -68,6 +68,10 @@
                         type: 'public-key',
                         transports: ['usb', 'ble', 'nfc'],
                     }],
+                    authenticatorSelection: {
+                        authenticatorAttachment: 'platform',
+                        userVerification: 'preferred'
+                    },
                     timeout: 60000,
                 }
                 try {
