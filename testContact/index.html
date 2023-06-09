@@ -1,125 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <h1><b style="color: red">Contact Picker</b> API Live Demo.</h1>
-    <p>
-      Please note that <b>Contact Picker API </b> is only for Android Mobile Web
-      and it requires chrome version greater than 80. <br />
-      It also requires the application to be run in https protocol. It won't run
-      on <b>localhost and desktop</b>.
-    </p>
-    <button onclick="openContactPicker()">Open my phone contacts</button>
-    <br><br>
-    <button onclick="openContactPickerFind()">(find) Open my phone contacts</button>
-    <br><br>
-    <button onclick="createWebAuthnPasskey()">Test passkey</button>
-    <div id="bambang"></div>
-    <script>
-       if (!window.PublicKeyCredential) {
-                      alert('WebAuthn is not supported in this browser.');
-                    }
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>
+            <b style="color: red">Contact Picker</b> API Live Demo.
+        </h1>
+        <button onclick="openContactPicker()">Open my phone contacts</button>
+        <br>
+        <br>
+        <button onclick="openContactPickerFind()">(find) Open my phone contacts</button>
+        <br>
+        <br>
+        <button onclick="createWebAuthnPasskey()">Test passkey</button>
+        <div id="bambang"></div>
+        <script>
+            if (!window.PublicKeyCredential) {
+                alert('WebAuthn is not supported in this browser.');
+            }
+            // Create a new WebAuthn passkey
+            async function createWebAuthnPasskey() {
+                const publicKey = {
+                    challenge: Uint8Array.from('RandomChallengeString', c => c.charCodeAt(0)),
+                    rp: {
+                        name: 'Example Website'
+                    },
+                    user: {
+                        id: Uint8Array.from('UniqueUserID', c => c.charCodeAt(0)),
+                        name: 'hendri@senja.co.uk',
+                        displayName: 'Hendri Heryanto'
+                    },
+                    pubKeyCredParams: [{
+                        type: 'public-key',
+                        alg: -7 // ES256
+                    }],
+                    authenticatorSelection: {
+                        authenticatorAttachment: 'platform',
+                        userVerification: 'preferred'
+                    },
+                    timeout: 60000, // 1 minute
+                    attestation: 'direct',
+                };
+                try {
+                    const credential = await navigator.credentials.create({
+                        publicKey: publicKey
+                    });
+                    alert(credential.id)
+                } catch (error) {
+                    alert(error)
+                }
+            }
 
-                    // Create a new WebAuthn passkey
-                    async function createWebAuthnPasskey() {
-                      const publicKey = {
-                        challenge: Uint8Array.from('RandomChallengeString', c => c.charCodeAt(0)),
-                        rp: {
-                          name: 'Example Website'
-                        },
-                        user: {
-                          id: Uint8Array.from('UniqueUserID', c => c.charCodeAt(0)),
-                          name: 'john.doe@example.com',
-                          displayName: 'John Doe'
-                        },
-                        pubKeyCredParams: [{
-                          type: 'public-key',
-                          alg: -7 // ES256
-                        }],
-                        authenticatorSelection: {
-                          authenticatorAttachment: 'platform',
-                          userVerification: 'preferred'
-                        },
-                        timeout: 60000, // 1 minute
-                        attestation: 'direct',
-                      };
-                      try{
-                        const credential = await navigator.credentials.create({
-                          publicKey: publicKey
-                        });
-                        
-                        alert(credential.id)
-                      }catch(error){
-                        alert(error)
-                      }
-                      
+            async function getWebAuthnPasskey()
+            {
+                const publicKeyCredentialRequestOptions = {
+                    challenge: Uint8Array.from(
+                        'randomStringFromServer', c => c.charCodeAt(0)),
+                    allowCredentials: [{
+                        id: Uint8Array.from(
+                            credentialId, c => c.charCodeAt(0)),
+                        type: 'public-key',
+                        transports: ['usb', 'ble', 'nfc'],
+                    }],
+                    timeout: 60000,
+                }
+                try {
+                    const assertion = await navigator.credentials.get({
+                        publicKey: publicKeyCredentialRequestOptions
+                    });
+                    alert(assertion.id)
+                } catch (error) {
+                    alert(error)
+                }
+            }
 
+            function openContactPicker() {
+                const supported = "contacts" in navigator && "ContactsManager" in window;
+                if (supported) {
+                    getContacts();
+                } else {
+                    alert("Contact list API not supported!. Only for android mobile chrome and chrome version > 80");
+                }
+            }
 
-
-                      // return navigator.credentials.create({ publicKey })
-                      //   .then((newCredentialInfo) => {
-                      //     const response = publicKeyCredential.response;
-                      //     // const myJSON = JSON.stringify(newCredentialInfo);
-                      //     document.getElementById("bambang").innerHTML = myJSON;
-                      //     const credential = newCredentialInfo;
-                      //     alert('New WebAuthn passkey created:', credential);
-                      //   })
-                      //   .catch((error) => {
-                      //     alert('Error creating WebAuthn passkey:', error);
-                      //   });
-                    }
-
-        function openContactPicker() {
-      const supported = "contacts" in navigator && "ContactsManager" in window;
-
-      if (supported) {
-        getContacts();
-      } else {
-        alert(
-          "Contact list API not supported!. Only for android mobile chrome and chrome version > 80"
-        );
-      }
-    }
-
-    function openContactPickerFind() {
-      const supported = "contacts" in navigator && "ContactsManager" in window;
-
-      if (supported) {
-        getContacts();
-      } else {
-        alert(
-          "Contact list API not supported!. Only for android mobile chrome and chrome version > 80"
-        );
-      }
-    }
-    async function getContacts() {
-      const props = ["name", "email", "tel"];
-      const opts = { multiple: true };
-
-      try {
-        const contacts = await navigator.contacts.select(props, opts);
-        alert(JSON.stringify(contacts));
-      } catch (err) {
-        alert(err);
-      }
-    }
-    async function getContactsFind() {
-      const props = ["name", "email", "tel"];
-      const opts = { multiple: true };
-
-      try {
-        const contacts = await navigator.contacts.find(props, opts);
-        alert(JSON.stringify(contacts));
-      } catch (err) {
-        alert(err);
-      }
-    }
+            function openContactPickerFind() {
+                const supported = "contacts" in navigator && "ContactsManager" in window;
+                if (supported) {
+                    getContacts();
+                } else {
+                    alert("Contact list API not supported!. Only for android mobile chrome and chrome version > 80");
+                }
+            }
+            async function getContacts() {
+                const props = ["name", "email", "tel"];
+                const opts = {
+                    multiple: true
+                };
+                try {
+                    const contacts = await navigator.contacts.select(props, opts);
+                    alert(JSON.stringify(contacts));
+                } catch (err) {
+                    alert(err);
+                }
+            }
+            async function getContactsFind() {
+                const props = ["name", "email", "tel"];
+                const opts = {
+                    multiple: true
+                };
+                try {
+                    const contacts = await navigator.contacts.find(props, opts);
+                    alert(JSON.stringify(contacts));
+                } catch (err) {
+                    alert(err);
+                }
+            }
         </script>
-</body>
+    </body>
 </html>
