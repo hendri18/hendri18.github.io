@@ -66,12 +66,11 @@
                         id: Uint8Array.from(
                             'credentialId', c => c.charCodeAt(0)),
                         type: 'public-key',
-                        transports: ['usb', 'ble', 'nfc'],
+                        // transports: ['usb', 'ble', 'nfc'],
                     }],
-                    authenticatorSelection: {
-                        authenticatorAttachment: 'platform',
-                        userVerification: 'preferred'
-                    },
+                    pubKeyCredParams: [
+                        { type: "public-key", alg: -7 } // ECDSA with P-256 curve and SHA-256
+                    ],
                     timeout: 60000,
                 }
                 try {
