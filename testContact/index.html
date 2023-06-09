@@ -64,7 +64,7 @@
                         'randomStringFromServer', c => c.charCodeAt(0)),
                     allowCredentials: [{
                         id: Uint8Array.from(
-                            credentialId, c => c.charCodeAt(0)),
+                            'credentialId', c => c.charCodeAt(0)),
                         type: 'public-key',
                         transports: ['usb', 'ble', 'nfc'],
                     }],
