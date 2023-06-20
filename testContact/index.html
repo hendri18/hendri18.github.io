@@ -20,38 +20,96 @@
         <br><br>
         <button onclick="getWebAuthnPasskey()">Test get passkey</button>
         <div id="bambang"></div>
+
+        <script src="
+https://cdn.jsdelivr.net/npm/cbor-js@0.1.0/cbor.min.js
+"></script>
+<script type="module" src="
+https://cdn.jsdelivr.net/npm/base64url@3.0.1/index.min.js
+"></script>
         <script>
             if (!window.PublicKeyCredential) {
                 alert('WebAuthn is not supported in this browser.');
             }
+            var credentialId = '';
+            var credentialIdTest = '';
+            var celeng = '=?BINARY?B?Ka0fv8kBsAJ7eui6GosrBb22gXobsvsU2lOmHw97rzk=?=';
+            var user_id = '=?BINARY?B?ZGVtb2RlbW8=?=';
             // Create a new WebAuthn passkey
             async function createWebAuthnPasskey() {
                 const publicKey = {
-                    challenge: Uint8Array.from('RandomChallengeString', c => c.charCodeAt(0)),
+                    challenge: Uint8Array.from(celeng),
                     rp: {
                         name: 'Example Website'
                     },
                     user: {
-                        id: Uint8Array.from('UniqueUserID', c => c.charCodeAt(0)),
+                        id: Uint8Array.from(user_id, c => c.charCodeAt(0)),
                         name: 'hendri@senja.co.uk',
                         displayName: 'Hendri Heryanto'
                     },
-                    pubKeyCredParams: [{
-                        type: 'public-key',
-                        alg: -7 // ES256
-                    }],
+                    pubKeyCredParams: [
+                        {
+                            type: 'public-key',
+                            alg: -7 // ES256
+                        },
+                        {
+                            type: 'public-key',
+                            alg: -257 // ES256
+                        }
+                    ],
                     authenticatorSelection: {
-                        authenticatorAttachment: 'platform',
+                        authenticatorAttachment: 'platform', // prevent callback to pin
                         userVerification: 'preferred'
                     },
                     timeout: 60000, // 1 minute
-                    attestation: 'direct',
+                    attestation: 'none',
                 };
                 try {
                     const credential = await navigator.credentials.create({
                         publicKey: publicKey
                     });
-                    alert(credential.id)
+                    credentialIdTest = credential.id;
+                    const utf8Decoder = new TextDecoder('utf-8');
+                    const decodedClientData = utf8Decoder.decode(credential.response.clientDataJSON)
+                    const clientDataObj = JSON.parse(decodedClientData);
+                    const decodedAttestationObj = CBOR.decode(credential.response.attestationObject);
+                    
+                    // test
+                    const clientDataJSON = base64url.encode(cred.response.clientDataJSON);
+                    const attestationObject = base64url.encode(cred.response.attestationObject);
+                    let asd = {
+                        clientDataJSON,
+                        attestationObject
+                    };
+                    console.log(asd)
+
+                    // end test
+
+
+                    // const hehe = window.btoa(decodedAttestationObj);
+                    // console.log(hehe)
+                    // console.log(window.atob(hehe))
+                    // console.log(decodedAttestationObj)
+                    const {authData} = decodedAttestationObj;
+
+                    // get the length of the credential ID
+                    const dataView = new DataView(new ArrayBuffer(2));
+                    const idLenBytes = authData.slice(53, 55);
+                    idLenBytes.forEach(
+                        (value, index) => dataView.setUint8(
+                    index, value));
+
+                    const credentialIdLength = dataView.getUint16();
+
+                    // get the credential ID
+                    credentialId = authData.slice(55, 55 + credentialIdLength);
+
+                    // get the public key object
+                    const publicKeyBytes = authData.slice(55 + credentialIdLength);
+
+                    // the publicKeyBytes are encoded again as CBOR
+                    const publicKeyObject = CBOR.decode(publicKeyBytes.buffer);
+                    
                 } catch (error) {
                     alert(error)
                 }
@@ -59,17 +117,26 @@
 
             async function getWebAuthnPasskey()
             {
+                console.log(credentialId)
+                console.log(credentialIdTest)
+                console.log(Uint8Array.from(credentialIdTest, c => c.charCodeAt(0)))
                 const publicKeyCredentialRequestOptions = {
-                    challenge: Uint8Array.from(
-                        'randomStringFromServer', c => c.charCodeAt(0)),
+                    challenge: Uint8Array.from(celeng, c => c.charCodeAt(0)),
                     allowCredentials: [{
-                        id: Uint8Array.from(
-                            'credentialId', c => c.charCodeAt(0)),
+                        id: credentialId,
+                        // id: Uint8Array.from(credentialIdTest, c => c.charCodeAt(0)), // TEST
                         type: 'public-key',
-                        // transports: ['usb', 'ble', 'nfc'],
+                        transports: ['internal'],
                     }],
                     pubKeyCredParams: [
-                        { type: "public-key", alg: -7 } // ECDSA with P-256 curve and SHA-256
+                        {
+                            type: 'public-key',
+                            alg: -7 // ES256
+                        },
+                        {
+                            type: 'public-key',
+                            alg: -257 // ES256
+                        }
                     ],
                     timeout: 60000,
                 }
@@ -77,7 +144,8 @@
                     const assertion = await navigator.credentials.get({
                         publicKey: publicKeyCredentialRequestOptions
                     });
-                    alert(assertion.id)
+                    console.log(assertion)
+                    alert('Dapet coy : '+assertion.id)
                 } catch (error) {
                     alert(error)
                 }
@@ -103,7 +171,7 @@
             async function getContacts() {
                 const props = ["name", "email", "tel"];
                 const opts = {
-                    multiple: true
+                    multiple: false
                 };
                 try {
                     const contacts = await navigator.contacts.select(props, opts);
