@@ -31,6 +31,36 @@ html {
   height: auto;
 }
 
+.hero {
+  min-height: calc(100vh - 75px);
+}
+
+.hero-image {
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.hero-image img {
+  visibility: inherit;
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  padding: 0;
+  border: none;
+  margin: auto;
+  display: block;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.hero-block {
+  width: 100%;
+}
+
 footer {
   padding: 40px 32px 32px;
 }
@@ -39,20 +69,75 @@ footer ul {
   padding-inline-start: 0 !important;
 }
 footer ul li {
-  padding: 0 48px 0 0;
   font-size: 0.875rem;
+  padding-bottom: 12px;
 }
 footer ul li a {
   line-height: 22px;
   display: inline;
   padding-bottom: 1px;
 }
+footer ul li a:hover:not(.footer-icon) {
+  color: #fff;
+  text-decoration: none;
+  text-decoration: initial;
+  border-bottom: 2px solid #fff;
+}
 footer .footer-logo-svg, footer .Footer_clydeLogo__hintw {
   width: 90px;
 }
-footer .footer-social-media {
+footer .footer-social-list {
   display: flex;
   justify-content: left;
+}
+footer .footer-social-list li {
+  padding: 0 48px 0 0;
+}
+footer .footer-main {
+  padding-top: 0 !important;
+}
+footer .footer-copyright {
+  font-size: 12px;
+}
+footer .footer-link-block {
+  margin-left: 5rem;
+}
+footer .footer-nav-title {
+  font-size: 16px;
+  line-height: 26px;
+  padding-bottom: 32px;
+}
+footer .footer-newsletter-info {
+  font-size: 14px;
+  line-height: 30px;
+  max-width: 500px;
+  letter-spacing: 1px;
+}
+footer .footer-language-switcher {
+  border-top: 1px solid #a2a2a2;
+  height: 65px;
+  margin-top: 0;
+}
+footer .footer_language-link {
+  font-size: 18px;
+  line-height: 25px;
+  display: inline;
+}
+footer .footer_language-link.active {
+  border-bottom: 2px solid #fff;
+}
+
+.cookie-btn-wrapper {
+  margin-top: -1rem;
+}
+
+.cookie-sdk-btn {
+  background: none !important;
+  border: none !important;
+  color: #fff !important;
+  padding: 0 !important;
+  font-size: 0.875rem !important;
+  letter-spacing: 1px;
 }
 
 @media (min-width: 1400px) {
@@ -67,11 +152,37 @@ footer .footer-social-media {
   footer .footer-main {
     width: 100%;
   }
+  footer .flex-column-reverse {
+    flex-direction: row !important;
+  }
   footer .footer-logo-svg, footer .Footer_clydeLogo__hintw {
     width: 120px;
   }
-  footer .footer-social-media ul li {
+  footer .footer-social-list li {
     padding: 0 10px 0 0;
+  }
+  footer .footer-newsletter-info {
+    max-width: 336px;
+    font-size: 18px;
+  }
+}
+@media (min-width: 1400px) and (max-width: 1599px) {
+  footer .footer-links-column {
+    margin-right: 77px !important;
+  }
+}
+@media (min-width: 768px) {
+  .hero-image {
+    width: 50%;
+  }
+
+  .hero-block {
+    width: 50%;
+  }
+}
+@media (max-width: 768px) {
+  footer .footer-nav-title {
+    font-size: 1rem;
   }
 }
 
