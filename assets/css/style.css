@@ -168,7 +168,7 @@ footer .footer_language-link.active {
   line-height: 26px;
 }
 
-.accordion-collapse.show .accordion-body {
+.collapse.show .accordion-body {
   padding-bottom: 12px;
 }
 
