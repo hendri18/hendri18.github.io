@@ -1,0 +1,78 @@
+html {
+  letter-spacing: 1px;
+}
+
+.navbar-wrapper {
+  width: 100%;
+  z-index: 1000;
+  overflow: hidden;
+  max-height: 100vh;
+  position: sticky;
+  top: 0;
+}
+.navbar-wrapper.scrolled {
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-out;
+  transition-property: background-color, top;
+  background-color: #fff;
+}
+
+.navbar-menu {
+  width: 100%;
+  margin: 0;
+}
+
+.btn-login {
+  padding: 2px 24px;
+  margin: initial;
+  font-size: 18px;
+  line-height: 34px;
+  margin-right: 50px;
+  height: auto;
+}
+
+footer {
+  padding: 40px 32px 32px;
+}
+footer ul {
+  list-style: none;
+  padding-inline-start: 0 !important;
+}
+footer ul li {
+  padding: 0 48px 0 0;
+  font-size: 0.875rem;
+}
+footer ul li a {
+  line-height: 22px;
+  display: inline;
+  padding-bottom: 1px;
+}
+footer .footer-logo-svg, footer .Footer_clydeLogo__hintw {
+  width: 90px;
+}
+footer .footer-social-media {
+  display: flex;
+  justify-content: left;
+}
+
+@media (min-width: 1400px) {
+  footer {
+    padding: 72px 64px 32px;
+    background-color: #000;
+    color: #fff;
+  }
+  footer a {
+    color: #fff;
+  }
+  footer .footer-main {
+    width: 100%;
+  }
+  footer .footer-logo-svg, footer .Footer_clydeLogo__hintw {
+    width: 120px;
+  }
+  footer .footer-social-media ul li {
+    padding: 0 10px 0 0;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
