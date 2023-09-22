@@ -180,10 +180,17 @@ footer { //Footer_footer__Q5T55
 .accordion-item {
     border: 0;
     border-bottom: 1px solid;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 24px;
+    padding-bottom: 24px;
     font-size: 12px;
     line-height: 26px;
+}
+
+.accordion-with-icon {
+    .accordion-item {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
 }
 
 .collapse.show {
@@ -280,6 +287,51 @@ footer { //Footer_footer__Q5T55
     flex-direction: column-reverse;
 }
 
+.vertical-teaser-image-container {
+    border-radius: 50%;
+    background: hsla(0,0%,100%,.5);
+    width: 100%;
+    max-width: 80px;
+    height: auto;
+    padding: 15px;
+}
+
+.explanation-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+.explanation-desc {
+    font-size: 1.5rem;
+}
+
+.explanation-text-column {
+    text-align: left;
+}
+
+.explanation-image-container {
+    max-height: 215px;
+}
+
+.explanation-image {
+    max-width: 200px;
+}
+
+.explanation-title {
+    line-height: 1;
+
+    b {
+        font-family: Brasley-Bold;
+    }
+
+    p {
+        font-family: ClearfaceStd-Bold;
+    }
+}
+
 @media (min-width: 1400px) {
     footer {
         padding: 72px 64px 32px;
@@ -322,6 +374,23 @@ footer { //Footer_footer__Q5T55
     }
 }
 
+
+@media(max-width: 1400px) {
+    .explanation-text-column {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center
+    }
+}
+
+@media (min-width: 576px) {
+    .explanation-row {
+        margin: 1.875rem 0;
+    }
+}
+
 @media (min-width: 768px) {
     .hero-image {
         width: 50%;
@@ -353,6 +422,10 @@ footer { //Footer_footer__Q5T55
     .vehicle-teaser-grid {
         grid-template-columns: 1fr 1fr
     }
+
+    .explanation-image {
+        max-width: 180px;
+    }
     
 }
 
@@ -375,5 +448,15 @@ footer { //Footer_footer__Q5T55
 
     .vehicle-teaser-head-line {
         min-height: 99px;
+    }
+}
+
+@media(max-width: 576px) {
+    .explanation-title {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center
     }
 }
