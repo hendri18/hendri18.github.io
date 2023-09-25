@@ -18,8 +18,8 @@
         <header id="masthead" class="site-header">
             <nav class="navbar-wrapper navbar navbar-expand-lg navbar-light">
                 <div class="navbar-header col-outer pr-0"><!-- TODO: Navbar_navbar__NtccY -->
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="navbar-brand">
-                        <svg name="Clyde das Auto Abo" data-testid="clyde_logo" version="1.1" x="0px" y="0px" class="clyde-logo-navbar fill-dark" viewBox="0 0 547.6 205.3">
+                    <a href="#" class="navbar-brand">
+                        <svg name="Clyde das Auto Abo" version="1.1" x="0px" y="0px" class="clyde-logo-navbar fill-dark" viewBox="0 0 547.6 205.3">
                             <g>
                                 <path d="M72.4,22.6c17.1,0,32.7,8.6,41.9,22.9l0.3,0.5l20.4-9.9l-0.4-0.6C121.7,13.6,97.8,0,72.4,0C32.5,0,0,32.5,0,72.4 s32.5,72.4,72.4,72.4c25.3,0,49.2-13.6,62.2-35.4l0.4-0.6L114.6,99l-0.3,0.5c-9.2,14.3-24.9,22.8-41.9,22.8 c-27.5,0-49.9-22.4-49.9-49.9C22.6,44.9,44.9,22.6,72.4,22.6z"></path>
                                 <rect x="149.6" y="2.9" width="23.3" height="137.8"></rect>
@@ -33,13 +33,30 @@
                     <button type="button" aria-label="Toggle navigation" class="navbar-toggle col-outer pl-0 navbar-toggler collapsed" data-toggle="collapse" data-target="#basic-navbar-nav" aria-controls="basic-navbar-nav"><span class="sr-only">Toggle navigation</span><span class="icon-bar top-bar bg-mobile-dark"></span><span class="icon-bar bottom-bar bg-mobile-dark"></span></button>
                 </div>
                 <div class="navbar-collapse collapse" id="basic-navbar-nav"><!-- TODO: d-none -->
-                    <ul class="navbar-nav navbar-menu">
+                    <ul class="navbar-nav navbar-main">
                         <li><a href="" class="nav-link">How it works</a></li>
                         <li><a href="" class="nav-link">Our 121 cars</a></li>
                         <li><a href="" class="nav-link">Why e-mobility?</a></li>
                         <li><a href="" class="nav-link">FAQ & contact</a></li>
                     </ul>
+                    <ul class="navbar-sub additional-links navbar-nav">
+                        <li class="nav-link ">
+                            <a href="/en/jobs" rel="" target="" title="Jobs">We and jobs</a>
+                        </li>
+                    </ul>
                     <a href="#" class="btn-login btn btn-outline-dark btn-sm">Login</a>
+                    <div class="navbar-bottom">
+                        <div class="d-flex flex-row">
+                          <ul class="w-100 d-flex align-items-left Navbar_languageSwitcher__W3pAY">
+                            <li>
+                              <a href="/de/home" class="language-link ">German</a>
+                            </li>
+                            <li>
+                              <a href="/en/home" class="language-link active">English</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                 </div>
             </nav>
         </header><!-- #masthead -->
@@ -59,7 +76,7 @@
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-12 col-lg-8">
-                                <a data-testid="Sign up now" title="Subscribe to your car now" href="/en/our-cars/" class="w-100 mt-4 btn btn-bright btn-lg">Sign up now</a>
+                                <a title="Subscribe to your car now" href="/en/our-cars/" class="w-100 mt-4 btn btn-bright btn-lg">Sign up now</a>
                             </div>
                         </div>
                     </div>
@@ -85,29 +102,29 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-4 col-xl-4 flex-column d-flex mx-auto mt-3 text-center">
-                            <a data-testid="Subscribe now" title="Subscribe to your car now" href="/en/our-cars/" class="w-100 btn btn-outline-dark btn-lg">Subscribe now</a>
+                            <a title="Subscribe to your car now" href="/en/our-cars/" class="w-100 btn btn-outline-dark btn-lg">Subscribe now</a>
                         </div>
                     </div>
                 </div>
             </section>
             <section class="row m-0">
-                <div class="col-12 col-md-6 d-flex align-items-center p-0 d-flex bg-violet">
-                    <div data-testid="why_choose_clyde" class="block-richtext d-flex flex-column first-block justify-content-center align-items-center flex-fill py-5 text-center">
+                <div class="col-12 col-md-6 d-flex align-items-center p-0 d-flex bg-violet blocky-group">
+                    <div class="block-richtext d-flex flex-column first-block justify-content-center align-items-center flex-fill py-5 text-center">
                         <div class="richtext">
                             <h2>Why</h2>
                             <h2>
                                 <b>Clyde</b>?
                             </h2>
                         </div>
-                        <div class="row w-100">
-                            <a data-testid="Discover your electric car" title="Find an electric car that suits you" href="/en/our-cars/" class=" mt-4  col-12 col-md-8 mx-auto btn btn-bright btn-lg">Discover your electric car</a>
+                        <div class="row w-100 mobile-hide">
+                            <a title="Find an electric car that suits you" href="/en/our-cars/" class=" mt-4  col-12 col-md-8 mx-auto btn btn-bright btn-lg">Discover your electric car</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 d-flex align-items-center p-0 d-flex bg-pale-violet">
                     <div class="d-flex block flex-column second-block justify-content-center align-items-center flex-fill col-outer py-5">
-                        <div data-testid="success_signup" class="block-richtext-container d-flex">
-                            <div data-testid="why_choose_clyde" class="block-richtext d-flex flex-column bg-pale-violet undefined text-center flex-fill">
+                        <div class="block-richtext-container d-flex">
+                            <div class="block-richtext d-flex flex-column bg-pale-violet undefined text-center flex-fill">
                                 <div class="richtext">
                                     <h3>Because we’re going <b>further</b>: </h3>
                                 </div>
@@ -118,7 +135,7 @@
                                 <div class="accordion-item border-violet">
                                     <div class="accordion-header" id="heading-1">
                                         <div role="button" class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
-                                            <div data-testid="Electricity is included." class="d-flex w-100 justify-content-between align-items-center flex-row">
+                                            <div class="d-flex w-100 justify-content-between align-items-center flex-row">
                                                 <div class="d-flex align-items-center">
                                                     <div class="accordion-icon d-flex mr-3 bg-violet">
                                                         <img src="assets/img/icons/Electric.svg" alt="icon Electricity is included.}">
@@ -143,7 +160,7 @@
                                 <div class="accordion-item border-violet">
                                     <div class="accordion-header" id="heading-2">
                                         <div role="button" class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse-2" aria-expanded="true" aria-controls="collapse-2">
-                                            <div data-testid="Electricity is included." class="d-flex w-100 justify-content-between align-items-center flex-row">
+                                            <div class="d-flex w-100 justify-content-between align-items-center flex-row">
                                                 <div class="d-flex align-items-center">
                                                     <div class="accordion-icon d-flex mr-3 bg-violet">
                                                         <img src="assets/img/icons/Wetter-Sonne.svg" alt="icon Electricity is included.}">
@@ -168,7 +185,7 @@
                                 <div class="accordion-item border-violet">
                                     <div class="accordion-header" id="heading-3">
                                         <div role="button" class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse-3" aria-expanded="true" aria-controls="collapse-3">
-                                            <div data-testid="Electricity is included." class="d-flex w-100 justify-content-between align-items-center flex-row">
+                                            <div class="d-flex w-100 justify-content-between align-items-center flex-row">
                                                 <div class="d-flex align-items-center">
                                                     <div class="accordion-icon d-flex mr-3 bg-violet">
                                                         <img src="assets/img/icons/Preis-Label-CHF.svg" alt="icon Electricity is included.}">
@@ -193,7 +210,7 @@
                                 <div class="accordion-item border-violet">
                                     <div class="accordion-header" id="heading-4">
                                         <div role="button" class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse-4" aria-expanded="true" aria-controls="collapse-4">
-                                            <div data-testid="Electricity is included." class="d-flex w-100 justify-content-between align-items-center flex-row">
+                                            <div class="d-flex w-100 justify-content-between align-items-center flex-row">
                                                 <div class="d-flex align-items-center">
                                                     <div class="accordion-icon d-flex mr-3 bg-violet">
                                                         <img src="assets/img/icons/Herz.svg" alt="icon Electricity is included.}">
@@ -217,8 +234,8 @@
                                 </div>
                                 <div class="accordion-item border-violet">
                                     <div class="accordion-header" id="heading-5">
-                                        <div role="button" class="accordion-button" type="button" data-toggle="collapse" data-target="#collapse-5" aria-expanded="true" aria-controls="collapse-5">
-                                            <div data-testid="Electricity is included." class="d-flex w-100 justify-content-between align-items-center flex-row">
+                                        <div role="button" class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse-5" aria-expanded="true" aria-controls="collapse-5">
+                                            <div class="d-flex w-100 justify-content-between align-items-center flex-row">
                                                 <div class="d-flex align-items-center">
                                                     <div class="accordion-icon d-flex mr-3 bg-violet">
                                                         <img src="assets/img/icons/Performance.svg" alt="icon Electricity is included.}">
@@ -234,7 +251,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="collapse-5" class="collapse show" aria-labelledby="heading-5" data-parent="#accordionWhyClyde">
+                                    <div id="collapse-5" class="collapse" aria-labelledby="heading-5" data-parent="#accordionWhyClyde">
                                         <div class="accordion-body">
                                             <p>Our 100% electric fleet (from 2024 onwards) features the latest electric cars from VW, Audi, Škoda and others. Every single model guarantees maximum driving fun thanks to state-of-the-art performance and technology. Full torque is available from the first metre, so even our small electric cars are more than convincing with their sporty acceleration. <br><br>Experience the unique dynamism that vehicles with internal combustion engines cannot offer. Once an electric car, always an electric car!</p>
                                         </div>
@@ -568,7 +585,7 @@
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <div class="vertical-teaser-image-container mx-auto mb-3">
-                                                                <img src="assets/img/icons.svg" title="Electricity is included in the car subscription of Clyde" alt="Electricity is included in the car subscription of Clyde" class="w-100">
+                                                                <img src="assets/img/icons/clyde_icon_ev.svg" title="Electricity is included in the car subscription of Clyde" alt="Electricity is included in the car subscription of Clyde" class="w-100">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -617,7 +634,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-lg-8 flex-column d-flex mx-auto mt-3 text-center">
-                                        <a data-testid="More about the Clyde Energy Benefit" title="Discover all the benefits of the new Clyde Energy Benefit" href="/en/including-electric-car-charging" class="w-100 btn btn-bright btn-lg">More about the Clyde Energy Benefit</a>
+                                        <a title="Discover all the benefits of the new Clyde Energy Benefit" href="/en/including-electric-car-charging" class="w-100 btn btn-bright btn-lg">More about the Clyde Energy Benefit</a>
                                     </div>
                                 </div>
                             </div>
@@ -651,7 +668,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-4 col-xl-4 flex-column d-flex mx-auto mt-3 text-center">
-                            <a data-testid="Find out more" title="Electricity is included. Take advantage of the Clyde Energy Benefit now!" href="/en/including-electric-car-charging" class="w-100 btn btn-outline-dark btn-lg">Find out more</a>
+                            <a title="Electricity is included. Take advantage of the Clyde Energy Benefit now!" href="/en/including-electric-car-charging" class="w-100 btn btn-outline-dark btn-lg">Find out more</a>
                         </div>
                     </div>
                 </div>
@@ -672,7 +689,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-lg-8 flex-column d-flex mx-auto mt-3 text-center">
-                                        <a data-testid="More about the Clyde Energy Benefit" title="Discover all the benefits of the new Clyde Energy Benefit" href="/en/including-electric-car-charging" class="w-100 btn btn-bright btn-lg">More about the Clyde Energy Benefit</a>
+                                        <a title="Discover all the benefits of the new Clyde Energy Benefit" href="/en/including-electric-car-charging" class="w-100 btn btn-bright btn-lg">More about the Clyde Energy Benefit</a>
                                     </div>
                                 </div>
                             </div>
@@ -835,7 +852,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-lg-8 flex-column d-flex mx-auto mt-3 text-center">
-                                        <a data-testid="How it works" title="How Clyde works" href="/en/how-it-works" class=" mt-4  col-12 col-md-8 mx-auto btn btn-bright btn-lg">How it works</a>
+                                        <a title="How Clyde works" href="/en/how-it-works" class=" mt-4  col-12 col-md-8 mx-auto btn btn-bright btn-lg">How it works</a>
                                     </div>
                                 </div>
                             </div>
@@ -935,7 +952,7 @@
                             </h2>
                         </div>
                         <div class="row w-100">
-                            <a data-testid="Here are your answers" title="Continue to more FAQs" href="/en/faq-contact" class=" mt-4  col-12 col-md-8 mx-auto btn btn-bright btn-lg">Here are your answers</a>
+                            <a title="Continue to more FAQs" href="/en/faq-contact" class=" mt-4  col-12 col-md-8 mx-auto btn btn-bright btn-lg">Here are your answers</a>
                         </div>
                     </div>
                 </div>
@@ -1094,12 +1111,12 @@
                                             <div class="col-12 d-flex flex-column pb-xl-8 pt-xl-0 pb-2 pt-4">
                                                 <ul class="footer-social-list m-0 pb-4 pt-2">
                                                     <li>
-                                                        <a data-testid="Facebook" class="footer-icon" aria-label="facebook social link" rel="noopener noreferrer" href="https://www.facebook.com/clydemobility" target="_blank">
+                                                        <a class="footer-icon" aria-label="facebook social link" rel="noopener noreferrer" href="https://www.facebook.com/clydemobility" target="_blank">
                                                             <svg width="24" height="24" viewBox="0 0 26 26" fill="#ffffff"><g stroke="none" stroke-width="1" fill="#ffffff" fill-rule="evenodd"><g transform="translate(-84.000000, -2388.000000)" fill="#ffffff" fill-rule="nonzero"><g transform="translate(-8.000000, 2007.000000)"><g transform="translate(92.000000, 381.000000)"><path d="M13,0 C5.82045455,0 0,5.85037122 0,13.066819 C0,19.6180468 4.80113636,25.0271159 11.0570909,25.9720845 L11.0570909,16.5301199 L7.84077273,16.5301199 L7.84077273,13.0953284 L11.0570909,13.0953284 L11.0570909,10.809823 C11.0570909,7.02579098 12.8912727,5.36452313 16.0201364,5.36452313 C17.5186818,5.36452313 18.3110909,5.47618504 18.6863182,5.52726442 L18.6863182,8.52550543 L16.5519545,8.52550543 C15.2235909,8.52550543 14.7597273,9.79120503 14.7597273,11.2178641 L14.7597273,13.0953284 L18.6526364,13.0953284 L18.1243636,16.5301199 L14.7597273,16.5301199 L14.7597273,26 C21.1049091,25.1346202 26,19.6815991 26,13.066819 C26,5.85037122 20.1795455,0 13,0 Z"></path></g></g></g></g></svg>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="footer-icon" data-testid="Instagram" rel="noopener noreferrer" href="https://ch.linkedin.com/company/clydeswitzerland" aria-label="linkedin social link" target="_blank">
+                                                        <a class="footer-icon" rel="noopener noreferrer" href="https://ch.linkedin.com/company/clydeswitzerland" aria-label="linkedin social link" target="_blank">
                                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g fill="#ffffff" fill-rule="nonzero"><path d="M20.447,20.452 L16.893,20.452 L16.893,14.883 C16.893,13.555 16.866,11.846 15.041,11.846 C13.188,11.846 12.905,13.291 12.905,14.785 L12.905,20.452 L9.351,20.452 L9.351,9 L12.765,9 L12.765,10.561 L12.811,10.561 C13.288,9.661 14.448,8.711 16.181,8.711 C19.782,8.711 20.448,11.081 20.448,14.166 L20.448,20.452 L20.447,20.452 Z M5.337,7.433 C4.193,7.433 3.274,6.507 3.274,5.368 C3.274,4.23 4.194,3.305 5.337,3.305 C6.477,3.305 7.401,4.23 7.401,5.368 C7.401,6.507 6.476,7.433 5.337,7.433 Z M7.119,20.452 L3.555,20.452 L3.555,9 L7.119,9 L7.119,20.452 Z M22.225,0 L1.771,0 C0.792,0 0,0.774 0,1.729 L0,22.271 C0,23.227 0.792,24 1.771,24 L22.222,24 C23.2,24 24,23.227 24,22.271 L24,1.729 C24,0.774 23.2,0 22.222,0 L22.225,0 Z"></path></g></g></svg>
                                                         </a>
                                                     </li>
@@ -1222,21 +1239,25 @@
         var lastScrollTop = 0;
 
         window.addEventListener("scroll", function(){ 
-        var st = window.pageYOffset || document.documentElement.scrollTop; 
-        var nav = document.querySelector('header nav');
-        if(st > 100) {
-            nav.classList.add('is-below-navbar-position')
-        }else if (st == 0){
-            nav.classList.remove('is-below-navbar-position')
-        }
+            var st = window.pageYOffset || document.documentElement.scrollTop; 
+            var nav = document.querySelector('header nav');
+            if(st > 100) {
+                nav.classList.add('is-below-navbar-position')
+            }else if (st == 0){
+                nav.classList.remove('is-below-navbar-position')
+            }
 
-        if (st > lastScrollTop) { // bottom direction
-            nav.style.top = '-104px';
-        } else if (st < lastScrollTop) { // top direction
-            nav.style.top = '0px';
-        }
-        lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+            if (st > lastScrollTop) { // bottom direction
+                nav.style.top = '-104px';
+            } else if (st < lastScrollTop) { // top direction
+                nav.style.top = '0px';
+            }
+            lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
         }, false);
+
+        function handleToggleNav() {
+
+        }
     </script>
 </body>
 </html>

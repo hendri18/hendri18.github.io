@@ -11,9 +11,36 @@ html {
     top: 0;
 }
 
-.navbar-menu {
+.navbar-brand {
+    img {
+        height: 71px;
+    }
+}
+
+.navbar-right-icons {
+    align-items: center;
+    gap: 1.5rem;
+    display: flex;
+    margin-right: 48px;
+}
+
+.navbar-main,
+.navbar-sub {
     width: 100%;
-    margin: 0
+    margin: 0;
+    // order: 2;
+}
+
+.navbar-collapse {
+    padding: 48px 24px 32px;
+}
+
+.navbar-bottom {
+    border-top: 1px solid #efefef;
+    padding-top: 32px;
+    order: 4;
+    display: block;
+    width: 100%;
 }
 
 .is-below-navbar-position {
@@ -22,6 +49,7 @@ html {
     transition: all .3s ease-out;
     transition-property: background-color,top;
     background-color: #fff;
+    z-index: 99;
 }
 
 .btn-login {
@@ -31,6 +59,7 @@ html {
     line-height: 34px;
     margin-right: 50px;
     height: auto;
+    margin-top: auto;
 }
 
 .hero {
@@ -332,6 +361,14 @@ footer { //Footer_footer__Q5T55
     }
 }
 
+.blocky-group {
+    &:before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+    }
+}
+
 @media (min-width: 1400px) {
     footer {
         padding: 72px 64px 32px;
@@ -430,15 +467,42 @@ footer { //Footer_footer__Q5T55
 }
 
 @media(min-width: 1280px) {
+    .navbar-collapse {
+        padding: 0;
+    }
+    .navbar-bottom {
+        display: none;
+    }
     .vehicle-teaser-grid {
         grid-template-columns: 1fr 1fr 1fr
     }
 }
 
 @media(max-width: 768px) {
-    footer {
+    .mobile-hide {
+        display: none;
+    }
+
+    header {
+        height: 0;
+    }
+
+    .navbar-collapse {
+        height: calc(100vh - 75px);
+    }
+
+    footer {xxxxxxxxxxxxxxcccccccvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvgggggggggggg
         .footer-nav-title {
             font-size:1rem
+        }
+    }
+
+    .hero-image {
+        &:before {
+            content: "";
+            display: block;
+            padding-top: 100%;
+            float: left;
         }
     }
 
