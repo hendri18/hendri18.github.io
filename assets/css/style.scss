@@ -103,6 +103,8 @@ html {
 
 footer { //Footer_footer__Q5T55 
     padding: 40px 32px 32px;
+    background-color: #011e42;
+    color: #fff;
 
     ul {
         list-style: none;
@@ -117,6 +119,7 @@ footer { //Footer_footer__Q5T55
                 line-height: 22px;
                 display: inline;
                 padding-bottom: 1px;
+                color: #fff;
 
                 &:hover:not(.footer-icon) {
                     color: #fff;
@@ -192,7 +195,10 @@ footer { //Footer_footer__Q5T55
         height: 60px;
         border-radius: 0.5rem;
     }
-    
+
+    .footer-heading {
+        margin-bottom: 55px;
+    }
 }
 
 .cookie-btn-wrapper {
@@ -381,6 +387,10 @@ footer { //Footer_footer__Q5T55
     }
 }
 
+.navbar-open {
+    background-color: #fff;
+}
+
 @media (min-width: 1400px) {
     footer {
         padding: 72px 64px 32px;
@@ -524,6 +534,12 @@ footer { //Footer_footer__Q5T55
 
     .vehicle-teaser-head-line {
         min-height: 99px;
+    }
+
+    .navbar-brand {
+        img {
+            max-height: 38px;
+        }
     }
 }
 
